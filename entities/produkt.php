@@ -1,6 +1,6 @@
 <?php
 
-class Kategorie{
+class Produkt{
 
 protected $id = 0;
 protected $name = "";
@@ -28,7 +28,7 @@ public function __construct($daten = array())
 public function  __toString()
 {
     return 'Id:'. $this->id .', Name: '.$this->name.', Description: '.$this->description.', Kategorie: '.$this->kategorie.', Price:'.$this->price.', Zutaten: '.$this->zutaten.', Status: '.$this->status;
-
+}
 
 public function toArray($mitId = true)
 {

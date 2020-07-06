@@ -3,8 +3,8 @@
 
 [Database]
 host = localhost
-name = DiegitalMenu
+name = DigitalMenu
 user = root
-password = 
+password =
 
 ?>

@@ -25,7 +25,7 @@ public function __construct($daten = array())
 
 public function  __toString()
 {
-    return 'Id:'. $this->id .', Name: '.$this->name.', Description: '.$this->description.', Subkategorie: '.$this->$subkategorie.', Icon: '.$this->icon;
+    return 'Id:'. $this->id .', Name: '.$this->name.', Description: '.$this->description.', Subkategorie: '.$this->subkategorie.', Icon: '.$this->icon;
 }
 
 
@@ -90,6 +90,14 @@ public function getIcon(){
   return $this->icon;
 }
 
+
+public function HasSubKategorie(){
+  if($this->getSubkategorie() != null){
+    return true;
+  }else {
+    return false;
+  }
+}
 
 /* ***** Private Methoden ***** */
 

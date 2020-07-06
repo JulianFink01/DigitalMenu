@@ -1,0 +1,66 @@
+html, * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #4f4a3c;
+  font-family: Calibri, sans-serif; }
+  html #content, * #content {
+    width: 80%;
+    height: 80%;
+    transform: translateY(10%);
+    margin: auto; }
+    html #content legend, * #content legend {
+      padding: 0.5em;
+      border-bottom: 1px solid white; }
+      html #content legend h1, * #content legend h1 {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        font-weight: normal;
+        margin: auto; }
+      html #content legend img, * #content legend img {
+        height: 1.2em;
+        cursor: pointer;
+        margin: auto;
+        float: right;
+        position: relative; }
+
+.visible {
+  visibility: visible !important;
+  opacity: 1 !important; }
+
+.blur {
+  -webkit-filter: blur(2px);
+  filter: blur(2px); }
+
+.popup {
+  transition: visibility 0.3s, opacity 0.3s linear;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  margin: auto;
+  border: 0.5px solid white;
+  border-radius: 4px; }
+  .popup #close {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    height: 7%;
+    cursor: pointer;
+    font-size: 2em; }
+  .popup legend h1 {
+    text-align: center;
+    color: white;
+    margin-top: 1em;
+    font-size: 2em;
+    font-weight: normal; }
+
+#addKategorie {
+  visibility: hidden;
+  opacity: 0; }
+
+/*# sourceMappingURL=backend.css.map */
