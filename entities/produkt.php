@@ -9,6 +9,7 @@ protected $price = 0;
 protected $kategorie = 0;
 protected $zutaten = "";
 protected $status = true;
+protected $icon = "";
 
 public function __construct($daten = array())
 {
@@ -72,6 +73,12 @@ public function setName($name){
 public function getName(){
   return $this->name;
 }
+public function setIcon($icon){
+  $this->icon = $icon;
+}
+public function getIcon(){
+  return $this->icon;
+}
 public function setDescription($description){
   $this->description = $description;
 }
@@ -109,8 +116,8 @@ public function getStatus(){
 private function _insert()
 {
 
-    $sql = 'INSERT INTO produkt (name, description, kategorie, price, zutaten, status)'
-         . 'VALUES (:name, :description, :kategorie, :price, :zutaten, :status)';
+    $sql = 'INSERT INTO produkt (name, description, kategorie, price, zutaten, status, icon)'
+         . 'VALUES (:name, :description, :kategorie, :price, :zutaten, :status, :icon)';
 
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute($this->toArray(false));
@@ -120,10 +127,10 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE produkt SET name=?, description=?, kategorie = ?, price = ?, zutaten = ?, status = ?'
+    $sql = 'UPDATE produkt SET name=?, icon=?, description=?, kategorie=?, price=?, zutaten=?, status=?'
         . 'WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
-    $abfrage->execute(array($this->getName(), $this->getDescription(),$this->getKategorie(), $this->getPrice(), $this->getZutaten(), $this->getStatus()));
+    $abfrage->execute(array($this->getName(), $this->getIcon(), $this->getDescription(),$this->getKategorie(), $this->getPrice(), $this->getZutaten(), $this->getStatus(), $this->getId()));
 }
 
 /* ***** public Methoden ***** */
@@ -152,20 +159,13 @@ public static function findeNachName($name){
   return $abfrage->fetch();
 }
 
-public static function findeAlleProdukte(){
-  $sql = 'SELECT * FROM produkt';
-  $abfrage = DB::getDB()->prepare($sql);
-  $abfrage->execute(array($name));
-  $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Produkt');
-  return $abfrage->fetch();
-}
 public static function findeNachKategorie(Kategorie $kategorie)
 {
   $sql = 'SELECT * FROM produkt WHERE kategorie=?';
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($kategorie->getId()));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Produkt');
-  return $abfrage->fetch();
+  return $abfrage->fetchAll();
 }
 
 

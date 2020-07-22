@@ -89,13 +89,11 @@ public function setIcon($icon){
 public function getIcon(){
   return $this->icon;
 }
-
-
 public function HasSubKategorie(){
-  if($this->getSubkategorie() != null){
-    return true;
-  }else {
+  if($this->getSubkategorie() == null){
     return false;
+  }else {
+    return true;
   }
 }
 
@@ -130,7 +128,13 @@ public static function findeAlle()
     $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kategorie');
     return $abfrage->fetchAll();
 }
-
+public static function findeAlleHauptKategorien()
+{
+    $sql = 'SELECT * FROM kategorie WHERE subkategorie IS NULL';
+    $abfrage = DB::getDB()->query($sql);
+    $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kategorie');
+    return $abfrage->fetchAll();
+}
 public static function finde($id){
   $sql = 'SELECT * FROM kategorie WHERE id=?';
   $abfrage = DB::getDB()->prepare($sql);

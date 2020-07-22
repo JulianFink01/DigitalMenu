@@ -27,6 +27,14 @@ html, *{
           margin: auto;
           float: right;
           position: relative;
+          margin-right: 3%;
+          &:nth-child(1){
+            margin-right:0;
+            }
+
+        }
+        #back{
+              float: left !important;
         }
         padding: 0.5em;
         border-bottom: 1px solid white;
@@ -72,8 +80,98 @@ html, *{
 
     }
   }
+  .flex{
+    width: 80%;
+    height: 60%;
+    margin-top: 20%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .input{
+      height: 10%;
+      width: 85%;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border: 1px solid white;
+      padding-left: 5%;
+      color: white;
+    }
+
+    .popup-label{
+      height: 10%;
+      width:15%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      color: $brown;
+      font-size: 1em;
+    }
+    .submit{
+      flex: 0 1000%;
+      height: 10%;
+      color: $brown;
+      background-color: white;
+      border-radius: 3px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  }
 }
 #addKategorie{
   visibility: hidden;
   opacity: 0;
+}
+#addProdukt{
+  visibility: hidden;
+  opacity: 0;
+}
+.kategories{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  .kategorie{
+    transition: 0.3s all ease-in;
+    border-radius: 3px;
+    cursor: pointer;
+    &:hover{
+      -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+    }
+    width: 30%;
+    margin: 1.5%;
+    height: 20%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    label{
+      cursor: inherit;
+      width: 50%;
+      background-color: inherit;
+      overflow: hidden;
+      text-align: center;
+      img{
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        cursor: inherit;
+        height: 100% !important;
+        overflow: hidden;
+        float: left;
+      }
+      .kategorie-titel{
+        width: 100%;
+        background-color: inherit;
+        text-align: center;
+        color: $brown;
+      }
+    }
+  }
 }
