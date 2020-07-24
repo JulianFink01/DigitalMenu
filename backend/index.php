@@ -11,7 +11,7 @@ require_once 'controller.php';
 
 
 
-$aktion = isset($_GET['aktion'])?$_GET['aktion']:'backend';
+$aktion = isset($_GET['aktion'])?$_GET['aktion']:'login';
 
 $controller = new Controller();
 

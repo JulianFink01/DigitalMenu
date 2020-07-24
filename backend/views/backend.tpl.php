@@ -1,3 +1,6 @@
+<?php if(!isset($_SESSION["loggedIn"])){
+    header('Location: index.php?aktion=login');}
+    ?>
 <html>
   <head>
       <meta charset="utf-8">
@@ -145,7 +148,6 @@
         }
         function editProdukt(json, kat){
           var popup = document.getElementById('addProdukt');
-          var obj = json;
           //inputs from editfield
           var produkttitel = document.getElementById('produkt-title');
           produkttitel.innerHTML= 'Produkt bearbeiten';

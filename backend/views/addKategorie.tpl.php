@@ -1,3 +1,6 @@
+<?php if(!isset($_SESSION["loggedIn"])){
+    header('Location: index.php?aktion=login');}
+    ?>
 <form class="popup" enctype="multipart/form-data" id="addKategorie" method="post" action="index.php?aktion=saveKategorie">
     <img src="images/close.png" id="close" title="Popup schließen" onclick="showPopup('addKategorie')"/>
 

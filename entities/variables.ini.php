@@ -7,4 +7,7 @@ name = DigitalMenu
 user = root
 password =
 
+[Verwaltung]
+username = test
+password = test
 ?>
