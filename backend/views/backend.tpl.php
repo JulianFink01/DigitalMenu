@@ -140,6 +140,9 @@
         function deleteKategorie(kat){
           location.href = 'index.php?aktion=deleteKategorie&kategorie='+kat;
         }
+        function deleteProdukt(prod, kat){
+        //  location.href = 'index.php?aktion=deleteProdukt&produkt='+prod+'kategorie='+kat;
+        }
         function editProdukt(json, kat){
           var popup = document.getElementById('addProdukt');
           var obj = json;
@@ -159,6 +162,16 @@
           var submitfield = document.getElementById('produkt-submit');
           submitfield.value ="Produkt bearbeiten";
           popup.action = 'index.php?aktion=editProdukt&id='+json['id']+'&kategorie='+kat;
+
+          var img = document.createElement('img');
+          img.src =  'images/delete.png';
+          img.id = 'delete-produkt';
+          img.title = 'Produkt löschen';
+          img.onclick = function deleteProdukt(){
+            location.href = 'index.php?aktion=deleteProdukt&produkt='+json['id']+'&kategorie='+kat;
+          }
+
+          popup.appendChild(img);
           //toggle
           popup.classList.toggle("visible");
           document.getElementById("content").classList.toggle("blur");

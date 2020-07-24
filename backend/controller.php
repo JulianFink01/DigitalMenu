@@ -48,6 +48,13 @@ class Controller{
       $kat->loesche();
       header("Location: index.php");
     }
+
+    function deleteProdukt(){
+      $kat = Kategorie::finde($_GET['kategorie']);
+      $produkt = Produkt::finde($_GET['produkt']);
+      $produkt->loesche();
+      header("Location: index.php?kategorie=".$kat->getId());
+    }
     private function saveKategorie(){
       if ($_POST['subkategorie'] === '')
           {

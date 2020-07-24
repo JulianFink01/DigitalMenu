@@ -57,6 +57,13 @@ html, * {
     height: 7%;
     cursor: pointer;
     font-size: 2em; }
+  .popup #delete-produkt {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    height: 7%;
+    cursor: pointer;
+    font-size: 2em; }
   .popup legend h1 {
     text-align: center;
     color: white;
