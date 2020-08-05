@@ -80,7 +80,7 @@ class Controller{
       $kategorie = Kategorie::finde($_GET['kategorie']);
       $sub = $kategorie->getSubkategorie();
       if($sub){
-        header("Location: index.php?kategorie=".$sub);
+        header("Location: index.php?aktion=backend&kategorie=".$sub);
       }else{
         header("Location: index.php");
       }
