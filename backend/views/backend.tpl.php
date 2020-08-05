@@ -138,7 +138,7 @@
           }
         }
         function openKategorie(url){
-          location.href = 'index.php?kategorie='+url;
+          location.href = 'index.php?aktion=backend&kategorie='+url;
         }
         function deleteKategorie(kat){
           location.href = 'index.php?aktion=deleteKategorie&kategorie='+kat;

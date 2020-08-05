@@ -21,19 +21,19 @@ class Controller{
 
     //controller
     private function backend(){
-        $kategorie = isset($_GET['kategorie'])?$_GET['kategorie']:'sup';
-        if(!isset($kategorie) || $kategorie == 'undefined'){
-          $kategorie='sup';
+      $kategorie = isset($_GET['kategorie'])?$_GET['kategorie']:'sup';
+      if(!isset($kategorie) || $kategorie == 'undefined'){
+        $kategorie='sup';
 
+      }
+      if($kategorie == 'sup'){
+        $this->addContext("kategorien", Kategorie::findeAlleHauptKategorien());
+        $this->addContext("produkte", NULL);
+      }else{
+        $kat = Kategorie::finde($kategorie);
+        $this->addContext("kategorien", Kategorie::findeNachKategorie($kat));
+        $this->addContext("produkte", Produkt::findeNachKategorie($kat));
         }
-        if($kategorie == 'sup'){
-          $this->addContext("kategorien", Kategorie::findeAlleHauptKategorien());
-          $this->addContext("produkte", NULL);
-        }else{
-          $kat = Kategorie::finde($kategorie);
-          $this->addContext("kategorien", Kategorie::findeNachKategorie($kat));
-          $this->addContext("produkte", Produkt::findeNachKategorie($kat));
-          }
     }
     private function deleteKategorie(){
       $kat = Kategorie::finde($_GET['kategorie']);
