@@ -21,6 +21,9 @@ class Controller{
 
     //controller
     private function backend(){
+        if(!isset($_SESSION["loggedIn"])){
+            header('Location: index.php?aktion=login');
+        }
       $kategorie = isset($_GET['kategorie'])?$_GET['kategorie']:'sup';
       if(!isset($kategorie) || $kategorie == 'undefined'){
         $kategorie='sup';
@@ -127,12 +130,12 @@ class Controller{
       $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
       $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
-      if($_POST["key"] == $verwaltung["username"] && $_POST["passwd"] == $verwaltung["password"]){
-        $_SESSION["loggedIn"] = true;
-        header("Location: index.php?aktion=backend");
-      }else{
-
-      }
+     
+          if(strcmp($_POST["key"], $verwaltung["username"]) == 0 && strcmp($_POST["passwd"], $verwaltung["password"]) == 0){
+            $_SESSION["loggedIn"] = true;  
+              header("Location: index.php?aktion=backend");
+          }else{
+          }
     }
     }
 }
