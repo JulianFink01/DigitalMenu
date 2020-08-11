@@ -1,5 +1,6 @@
 <div class="popup" id="popup" >
-    <img src="images/close.png" id="close" title="Popup schließen" onclick="showPopup('addProdukt')"/>
+   <!-- <img src="images/close.png" id="close" title="Popup schließen" onclick="showPopup('addProdukt')"/>-->
+    <div id="close" title="Popup schließen" onclick="showPopup('addProdukt')"></div>
 
     <legend><h1 id="produkt-title">Produkt</h1></legend>
       <div class="flex">

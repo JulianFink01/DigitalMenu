@@ -2,35 +2,51 @@ html, * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #e5e2dc;
+  background-color: #fff;
   font-family: Calibri, sans-serif; }
   html #content, * #content {
-    width: 95%;
+    width: 100%;
     height: 80%;
-    transform: translateY(10%);
+    transform: translateY(0%);
     margin: auto; }
     html #content legend, * #content legend {
+      height: 70px;
       padding: 0.5em;
-      border-bottom: 1px solid white;
-      background-color: #4f4a3c; }
+      border-bottom: 1px solid #4f4a3c;
+      background-color: white; }
       html #content legend h1, * #content legend h1 {
         text-align: center;
-        color: #b0a996;
+        color: #4f4a3c;
         font-size: 2em;
         font-weight: normal;
         margin: auto;
-        background-color: #4f4a3c; }
+        background-color: white; }
       html #content legend img, * #content legend img {
-        height: 1.2em;
-        cursor: pointer;
         margin: auto;
         float: right;
         position: relative;
-        margin-right: 3%;
-        background-color: #4f4a3c; }
+        margin-right: 3%; }
         html #content legend img:nth-child(1), * #content legend img:nth-child(1) {
           margin-right: 0; }
       html #content legend #back, * #content legend #back {
+        background-image: url(../images/back.png);
+        background-size: cover;
+        background-position: center;
+        height: 1.2em;
+        width: 1.2em;
+        cursor: pointer;
+        float: left !important;
+        argin: auto;
+        float: right;
+        position: relative;
+        margin-right: 3%; }
+        html #content legend #back:nth-child(1), * #content legend #back:nth-child(1) {
+          margin-right: 0; }
+        html #content legend #back:hover, * #content legend #back:hover {
+          background-image: url(../images/backM.png); }
+      html #content legend #logo, * #content legend #logo {
+        height: 1.6em;
+        padding-right: 10px;
         float: left !important; }
 
 .visible {
@@ -51,22 +67,33 @@ html, * {
   right: 10%;
   bottom: 10%;
   margin: auto;
-  border: 0.5px solid white;
+  border: 0.5px solid #4f4a3c;
+  background-color: #4f4a3c;
   border-radius: 0px; }
   .popup #close {
+    background-image: url(../images/close.png);
+    background-size: cover;
+    background-position: center;
     position: absolute;
     right: 1em;
     top: 1em;
     height: 7%;
     cursor: pointer;
-    font-size: 2em; }
+    font-size: 2em;
+    background-color: #4f4a3c;
+    height: 1.2em;
+    width: 1.2em; }
+    .popup #close:hover {
+      background-image: url(../images/closeM.png); }
   .popup legend h1 {
     text-align: center;
     color: white;
     margin-top: 1em;
     font-size: 2em;
-    font-weight: normal; }
+    font-weight: normal;
+    background-color: #4f4a3c; }
   .popup .flex {
+    background-color: #4f4a3c;
     width: 80%;
     height: 60%;
     margin-top: 20%;
@@ -79,7 +106,7 @@ html, * {
       width: 85%;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
-      border: 1px solid white;
+      border: 1px solid #4f4a3c;
       padding-left: 5%;
       color: white; }
     .popup .flex .popup-label {
@@ -88,9 +115,10 @@ html, * {
       text-align: center;
       display: flex;
       align-items: center;
-      background-color: white;
+      background-color: #4f4a3c;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
+      border-bottom: white solid 1px;
       color: white;
       font-size: 1em; }
     .popup .flex .popup-icon {
@@ -99,7 +127,7 @@ html, * {
       text-align: center;
       display: flex;
       align-items: center;
-      background: white;
+      background: #4f4a3c;
       font-size: 1em;
       text-align: center !important; }
       .popup .flex .popup-icon img {
@@ -110,7 +138,7 @@ html, * {
       flex: 0 1000%;
       height: 10%;
       color: white;
-      background-color: white;
+      background-color: #4f4a3c;
       border-radius: 0px;
       border: 1px solid white;
       cursor: pointer; }
@@ -126,6 +154,14 @@ html, * {
   height: 100%;
   display: flex;
   flex-wrap: wrap; }
+  .kategories .images {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    border-right-width: 6px;
+    border-right-color: #552f28;
+    border-right-style: solid; }
   .kategories .kategorie {
     transition: 0.3s all ease-in;
     border-radius: 0px;
@@ -133,7 +169,7 @@ html, * {
     width: 30%;
     margin: 1.5%;
     height: 20%;
-    background-color: #b0a996;
+    background-color: #4f4a3c;
     display: flex;
     flex-wrap: wrap;
     align-items: center; }
@@ -141,18 +177,17 @@ html, * {
       -webkit-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75); }
+      .kategories .kategorie:hover .kategorie-titel {
+        color: #208676; }
     .kategories .kategorie label {
       cursor: inherit;
       width: 50%;
       background-color: inherit;
       overflow: hidden;
-      text-align: left; }
+      text-align: center; }
       .kategories .kategorie label img {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
-        border-right-width: 6px;
-        border-right-color: #4f4a3c;
-        border-right-style: solid;
         cursor: inherit;
         height: 100% !important;
         overflow: hidden;
@@ -161,6 +196,48 @@ html, * {
         width: 100%;
         background-color: inherit;
         text-align: center;
-        color: #4f4a3c; }
+        color: #fff; }
+        .kategories .kategorie label .kategorie-titel:hover {
+          color: #208676; }
+  .kategories .product {
+    transition: 0.3s all ease-in;
+    border-radius: 0px;
+    cursor: pointer;
+    width: 30%;
+    margin: 1.5%;
+    height: 20%;
+    background-color: #806954;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; }
+    .kategories .product:hover {
+      -webkit-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75); }
+      .kategories .product:hover .product-titel {
+        color: #208676; }
+    .kategories .product label {
+      cursor: inherit;
+      width: 50%;
+      background-color: inherit;
+      overflow: hidden;
+      text-align: center; }
+      .kategories .product label img {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        cursor: inherit;
+        height: 100% !important;
+        overflow: hidden;
+        float: left;
+        border-right-width: 6px;
+        border-right-color: white;
+        border-right-style: solid; }
+      .kategories .product label .product-titel {
+        width: 100%;
+        background-color: inherit;
+        text-align: center;
+        color: #fff; }
+        .kategories .product label .product-titel:hover {
+          color: #208676; }
 
 /*# sourceMappingURL=frontend.css.map */

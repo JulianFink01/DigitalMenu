@@ -1,31 +1,29 @@
 $brown: rgb(79,74,60);
-$lightBrown: rgb(176, 169, 150);
 
 
 html, *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(229, 226, 220);
+  background-color: #fff;
   font-family: Calibri, sans-serif;
 
   #content{
-      width: 95%;
+      width: 100%;
       height: 80%;
-      transform: translateY(10%);
+      transform: translateY(0%);
       margin: auto;
       legend{
         h1{
           text-align: center;
-          color: $lightBrown;
+          color: $brown;
           font-size: 2em;
           font-weight: normal;
           margin: auto;
-            background-color: $brown;
+            background-color: white;
+            
         }
         img{
-          height: 1.2em;
-          cursor: pointer;
           margin: auto;
           float: right;
           position: relative;
@@ -34,14 +32,36 @@ html, *{
             margin-right:0;
             }
             
-            background-color: $brown;
+            
         }
         #back{
+            background-image: url(../images/back.png);
+            background-size: cover;
+            background-position: center;
+            height: 1.2em;
+            width: 1.2em;
+              cursor: pointer;  
+              float: left !important;
+            argin: auto;
+          float: right;
+          position: relative;
+          margin-right: 3%;
+          &:nth-child(1){
+            margin-right:0;
+            }
+            &:hover{
+                background-image: url(../images/backM.png);
+            }
+        }
+        #logo{
+            height: 1.6em;
+            padding-right: 10px;
               float: left !important;
         }
+        height: 70px;
         padding: 0.5em;
-        border-bottom: 1px solid white;
-        background-color: $brown;
+        border-bottom: 1px solid $brown;
+        background-color: white;
       }
   }
 }
@@ -64,15 +84,25 @@ html, *{
   right: 10%;
   bottom: 10%;
   margin: auto;
-  border: 0.5px solid white;
+  border: 0.5px solid $brown;
+    background-color: $brown;
   border-radius: 0px;
   #close{
+      background-image: url(../images/close.png);
+      background-size: cover;
+      background-position: center;
+      &:hover{
+                background-image: url(../images/closeM.png);
+            }
     position: absolute;
     right:1em;
     top: 1em;
     height: 7%;
     cursor: pointer;
     font-size: 2em;
+      background-color: $brown;
+      height: 1.2em;
+            width: 1.2em;
   }
 
   legend{
@@ -82,10 +112,12 @@ html, *{
       margin-top: 1em;
       font-size:2em;
       font-weight: normal;
+        background-color: $brown;
 
     }
   }
   .flex{
+      background-color: $brown;
     width: 80%;
     height: 60%;
     margin-top: 20%;
@@ -98,7 +130,7 @@ html, *{
       width: 85%;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
-      border: 1px solid white;
+      border: 1px solid $brown;
       padding-left: 5%;
       color: white;
     }
@@ -109,9 +141,10 @@ html, *{
       text-align: center;
       display: flex;
       align-items: center;
-      background-color: white;
+      background-color: $brown;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
+        border-bottom: white solid 1px;
       color: white;
       font-size: 1em;
     }
@@ -121,7 +154,7 @@ html, *{
       text-align: center;
       display: flex;
       align-items: center;
-      background: white;
+      background: $brown;
       font-size: 1em;
       text-align: center !important;
       img{
@@ -134,7 +167,7 @@ html, *{
       flex: 0 1000%;
       height: 10%;
       color: white;
-      background-color: white;
+      background-color: $brown;
       border-radius: 0px;
       border: 1px solid white;
       cursor: pointer;
@@ -153,6 +186,16 @@ html, *{
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    .images{
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        border-right-width: 6px;
+        border-right-color: #552f28;
+        border-right-style: solid;
+        
+    }
   .kategorie{
     transition: 0.3s all ease-in;
     border-radius: 0px;
@@ -161,11 +204,15 @@ html, *{
       -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
       -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
       box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+        .kategorie-titel{
+            color: #208676;
+        }
+        
     }
     width: 30%;
     margin: 1.5%;
     height: 20%;
-    background-color: $lightBrown;
+    background-color: $brown;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -174,23 +221,74 @@ html, *{
       width: 50%;
       background-color: inherit;
       overflow: hidden;
-      text-align: left;
+      text-align: center;
       img{
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
-        border-right-width: 6px;
-        border-right-color: $brown;
-        border-right-style: solid;
         cursor: inherit;
         height: 100% !important;
         overflow: hidden;
         float: left;
       }
       .kategorie-titel{
+          
         width: 100%;
         background-color: inherit;
         text-align: center;
-        color: $brown;
+        color: #fff;
+          &:hover{
+                color: #208676;
+            }
+      }
+    }
+  }
+     .product{
+    transition: 0.3s all ease-in;
+    border-radius: 0px;
+    cursor: pointer;
+    &:hover{
+      -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.75);
+        .product-titel{
+            color: #208676;
+        }
+        
+    }
+    width: 30%;
+    margin: 1.5%;
+    height: 20%;
+    background-color: #806954;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    label{
+      cursor: inherit;
+      width: 50%;
+      background-color: inherit;
+      overflow: hidden;
+      text-align: center;
+        
+      img{
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        cursor: inherit;
+        height: 100% !important;
+        overflow: hidden;
+        float: left;
+          border-right-width: 6px;
+        border-right-color: white;
+        border-right-style: solid;
+      }
+      .product-titel{
+          
+        width: 100%;
+        background-color: inherit;
+        text-align: center;
+        color: #fff;
+          &:hover{
+                color: #208676;
+            }
       }
     }
   }
