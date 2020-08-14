@@ -122,6 +122,8 @@ html, * {
       color: white;
       font-size: 1em; }
     .popup .flex .popup-icon {
+      background-position: center;
+      background-size: cover;
       height: 50%;
       width: 100%;
       text-align: center;
@@ -158,10 +160,7 @@ html, * {
     background-size: cover;
     background-position: center;
     height: 100%;
-    width: 100%;
-    border-right-width: 6px;
-    border-right-color: #552f28;
-    border-right-style: solid; }
+    width: 100%; }
   .kategories .kategorie {
     transition: 0.3s all ease-in;
     border-radius: 0px;
@@ -173,6 +172,10 @@ html, * {
     display: flex;
     flex-wrap: wrap;
     align-items: center; }
+    .kategories .kategorie .images {
+      border-right-width: 6px;
+      border-right-color: #552f28;
+      border-right-style: solid; }
     .kategories .kategorie:hover {
       -webkit-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
@@ -203,13 +206,18 @@ html, * {
     transition: 0.3s all ease-in;
     border-radius: 0px;
     cursor: pointer;
-    width: 30%;
+    width: 25%;
     margin: 1.5%;
     height: 20%;
     background-color: #806954;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     align-items: center; }
+    .kategories .product .images {
+      height: 50%;
+      border-bottom-width: 6px;
+      border-bottom-color: #552f28;
+      border-bottom-style: solid; }
     .kategories .product:hover {
       -webkit-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 27px -6px rgba(0, 0, 0, 0.75);
@@ -218,7 +226,7 @@ html, * {
         color: #208676; }
     .kategories .product label {
       cursor: inherit;
-      width: 50%;
+      width: 100%;
       background-color: inherit;
       overflow: hidden;
       text-align: center; }
@@ -233,11 +241,18 @@ html, * {
         border-right-color: white;
         border-right-style: solid; }
       .kategories .product label .product-titel {
+        padding-left: 10px;
         width: 100%;
         background-color: inherit;
         text-align: center;
         color: #fff; }
         .kategories .product label .product-titel:hover {
           color: #208676; }
+      .kategories .product label .product-description {
+        padding: 10px;
+        background-color: inherit;
+        text-align: left;
+        color: white;
+        font-size: 0.8em; }
 
 /*# sourceMappingURL=frontend.css.map */

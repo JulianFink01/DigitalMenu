@@ -58,15 +58,15 @@
               foreach($produkte as $pro){
                   $pdkt = array('id'=>$pro->getId(), 'name'=>$pro->getName(), 'description'=>$pro->getDescription(), 'price'=>$pro->getPrice(), 'zutaten'=>$pro->getZutaten(), 'icon'=>$pro->getIcon());
                   echo "<div class='product'   onclick='showPopup(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
-                  echo "<label><div class='images' style='background-image: url(../images/produkt/".$pro->getIcon()."'></div></label>";
-                  echo "<label><a class='product-titel'>".$pro->getName()."</a></label>";
+                  echo "<label><div class='images' style='background-image: url(../images/produkt/".$pro->getIcon()."'></div></label><br>";
+                  echo "<label><a class='product-titel'>".$pro->getName()."</a><br><p class='product-description'>".$pro->getDescription()."</p></label>";
                   echo "</div>";
               }
             }else{
               $pdkt = array('id'=>$produkte->getId(), 'name'=>$produkte->getName(), 'description'=>$produkte->getDescription(), 'price'=>$produkte->getPrice(), 'zutaten'=>$produkte->getZutaten(), 'icon'=>$produkte->getIcon());
               echo "<div class='product'   onclick='showPopup(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
-              echo "<label><div class='images' style='background-image: url(../images/produkt/".$produkte->getIcon()."'></div></label>";
-              echo "<label><a class='product-titel'>".$produkte->getName()."</a></label>";
+              echo "<label><div class='images' style='background-image: url(../images/produkt/".$produkte->getIcon()."'></div></label><br>";
+              echo "<label><a class='product-titel'>".$produkte->getName()."</a><br><p class='product-description'>".$produkte->getDescription()."</p></label>";
               echo "</div>";
             }
           }
@@ -93,7 +93,7 @@
           var zutatenfield = document.getElementById('popup-zutaten');
           zutatenfield.innerHTML = json['zutaten'];
           var zutatenfield = document.getElementById('popup-icon');
-          zutatenfield.src = '../images/produkt/'+json['icon'];
+          zutatenfield.style = 'background-image: url(../../images/produkt/'+json['icon']+')';
           var zutatenfield = document.getElementById('produkt-title');
           zutatenfield.innerHTML = json['name'];
         }
