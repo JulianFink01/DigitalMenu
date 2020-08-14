@@ -136,6 +136,7 @@
             submitfield.value ="Kategorie erstellen";
             popup.action = 'index.php?aktion=saveKategorie&kategorie='+kat;
           }
+          document.getElementById("delete-produkt").remove();
         }
         function openKategorie(url){
           location.href = 'index.php?aktion=backend&kategorie='+url;

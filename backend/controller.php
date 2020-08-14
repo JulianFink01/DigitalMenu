@@ -59,7 +59,8 @@ class Controller{
       header("Location: index.php?kategorie=".$kat->getId());
     }
     private function saveKategorie(){
-      if ($_POST['subkategorie'] === '')
+
+      if ($_POST['subkategorie'] === '' || $_POST['subkategorie'] === 'undefined')
           {
           $_POST['subkategorie'] = NULL; // or 'NULL' for SQL
           }
@@ -130,9 +131,9 @@ class Controller{
       $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
       $verwaltung = $vars["Verwaltung"];
       if(isset($_POST["key"]) && isset($_POST["passwd"])){
-     
+
           if(strcmp($_POST["key"], $verwaltung["username"]) == 0 && strcmp($_POST["passwd"], $verwaltung["password"]) == 0){
-            $_SESSION["loggedIn"] = true;  
+            $_SESSION["loggedIn"] = true;
               header("Location: index.php?aktion=backend");
           }else{
           }
