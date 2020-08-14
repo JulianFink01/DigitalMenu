@@ -10,7 +10,10 @@
 
     <div id="content">
       <legend>
-        <h1><?php
+        <h1>
+            
+            <img src="images/FaviconRH.svg" id="logo"/>
+            <?php
             if(isset($_GET['kategorie'])){
               if($_GET['kategorie'] == 'undefined'){
                 echo "Kategorien";
@@ -25,31 +28,31 @@
           <?php
             if($kategorien){
               ?>
-              <img src="images/addFolder.png" alt="Kategorie hinzufügen" title="Kategorie hinzufügen" onclick="showPopup('addKategorie',<?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"/>
+              <div id="addFolder" alt="Kategorie hinzufügen" title="Kategorie hinzufügen" onclick="showPopup('addKategorie',<?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"></div>
               <?php
             }elseif($produkte){
               ?>
-              <img src="images/add.png" alt="Produkt hinzufügen" title="Produkt hinzufügen" onclick="showPopup('addProdukt', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"/>
+            <div id="add" alt="Produkt hinzufügen" title="Produkt hinzufügen" onclick="showPopup('addProdukt', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"></div>
               <?php
             }elseif(!$kategorien && !$produkte){
               ?>
-              <img src="images/addFolder.png" alt="Kategorie hinzufügen" title="Kategorie hinzufügen" onclick="showPopup('addKategorie', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"/>
-              <img src="images/add.png" alt="Produkt hinzufügen" title="Produkt hinzufügen" onclick="showPopup('addProdukt', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"/>
+            <div id="addFolder" alt="Kategorie hinzufügen" title="Kategorie hinzufügen" onclick="showPopup('addKategorie', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"></div>
+            <div id="add" alt="Produkt hinzufügen" title="Produkt hinzufügen" onclick="showPopup('addProdukt', <?php if(isset($_GET['kategorie'])){echo $_GET['kategorie'];}else{echo 'undefined';}?>)"></div>
               <?php
             }
             if(isset($_GET['kategorie'])){
             $kategorie_json = Kategorie::finde($_GET['kategorie']);
             $kat_json = array('id'=>$kategorie_json->getId(), 'name'=>$kategorie_json->getName(), 'description'=>$kategorie_json->getDescription(), 'subkategorie'=>$kategorie_json->getSubkategorie(), 'icon'=>$kategorie_json->getIcon());
-            echo "<img src='images/edit.png' alt='Kategorie bearbeiten' title='Kategorie bearbeiten'    onclick='editKategorie(".json_encode($kat_json).",".$_GET['kategorie'].")'>";
+            echo "<div id='edit' src='images/edit.png' alt='Kategorie bearbeiten' title='Kategorie bearbeiten'    onclick='editKategorie(".json_encode($kat_json).",".$_GET['kategorie'].")'></div>";
 
             ?>
 
-          <img src="images/delete.png" alt="Kategorie löschen" title="Kategorie löschen" onclick="deleteKategorie(<?php echo $_GET['kategorie'] ?>)" />
+            <div id="delete" src="images/delete.png" alt="Kategorie löschen" title="Kategorie löschen" onclick="deleteKategorie(<?php echo $_GET['kategorie'] ?>)"></div>
           <?php
           }
              if(isset($_GET['kategorie'])){
           ?>
-          <img src="images/back.png" id="back" alt="Zurück" title="Zurück" onclick="back(<?php echo $_GET['kategorie'] ?>)" />
+          <div id="back" alt="Zurück" title="Zurück" onclick="back(<?php echo $_GET['kategorie'] ?>)"></div>
         <?php }?>
         </h1>
       </legend>
@@ -61,13 +64,13 @@
             if(is_array($kategorien)){
               foreach($kategorien as $kat){
                   echo "<div class='kategorie' onclick='openKategorie(".$kat->getId().")'>";
-                  echo "<label><img src='../images/kategorie/".$kat->getIcon()."'/></label>";
+                  echo "<label><div class='images' style='background-image: url(../images/kategorie/".$kat->getIcon()."'></div></label>";
                   echo "<label><a class='kategorie-titel'>".$kat->getName()."</a></label>";
                   echo "</div>";
               }
             }else{
               echo "<div class='kategorie' onclick='openKategorie(".$kategorien->getId().")'>";
-              echo "<label><img src='../images/kategorie/".$kategorien->getIcon()."'/></label>";
+              echo "<label><div class='images' style='background-image: url(../images/kategorie/".$kategorien->getIcon()."'></div></label>";
               echo "<label><a class='kategorie-titel'>".$kategorien->getName()."</a></label>";
               echo "</div>";
             }
@@ -75,16 +78,16 @@
             if(is_array($produkte)){
               foreach($produkte as $pro){
                   $pdkt = array('id'=>$pro->getId(), 'name'=>$pro->getName(), 'description'=>$pro->getDescription(), 'price'=>$pro->getPrice(), 'zutaten'=>$pro->getZutaten(), 'icon'=>$pro->getIcon());
-                  echo "<div class='kategorie'   onclick='editProdukt(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
-                  echo "<label><img src='../images/produkt/".$pro->getIcon()."'/></label>";
-                  echo "<label><a class='kategorie-titel'>".$pro->getName()."</a></label>";
+                  echo "<div class='product'   onclick='editProdukt(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
+                  echo "<label><div class='images' style='background-image: url(../images/produkt/".$pro->getIcon()."'></div></label><br>";
+                  echo "<label><a class='product-titel'>".$pro->getName()."</a><br><p class='product-description'>".$pro->getDescription()."</p></label>";
                   echo "</div>";
               }
             }else{
               $pdkt = array('id'=>$produkte->getId(), 'name'=>$produkte->getName(), 'description'=>$produkte->getDescription(), 'price'=>$produkte->getPrice(), 'zutaten'=>$produkte->getZutaten(), 'icon'=>$produkte->getIcon());
-              echo "<div class='kategorie'   onclick='editProdukt(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
-              echo "<label><img src='../images/produkt/".$produkte->getIcon()."'/></label>";
-              echo "<label><a class='kategorie-titel'>".$produkte->getName()."</a></label>";
+              echo "<div class='product'   onclick='editProdukt(".json_encode($pdkt).",".$_GET['kategorie'].")'>";
+              echo "<label><div class='images' style='background-image: url(../images/produkt/".$produkte->getIcon()."'></div></label><br>";
+              echo "<label><a class='product-titel'>".$produkte->getName()."</a><br><p class='product-description'>".$produkte->getDescription()."</p></label>";
               echo "</div>";
             }
           }
@@ -166,9 +169,9 @@
           submitfield.value ="Produkt bearbeiten";
           popup.action = 'index.php?aktion=editProdukt&id='+json['id']+'&kategorie='+kat;
 
-          var img = document.createElement('img');
-          img.src =  'images/delete.png';
+          var img = document.createElement('div');
           img.id = 'delete-produkt';
+            img.className = 'delete-product';
           img.title = 'Produkt löschen';
           img.onclick = function deleteProdukt(){
             location.href = 'index.php?aktion=deleteProdukt&produkt='+json['id']+'&kategorie='+kat;

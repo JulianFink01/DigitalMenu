@@ -42,7 +42,7 @@ html, *{
             width: 1.2em;
               cursor: pointer;  
               float: left !important;
-            argin: auto;
+            margin: auto;
           float: right;
           position: relative;
           margin-right: 3%;
@@ -148,9 +148,14 @@ html, *{
       color: white;
       font-size: 1em;
     }
-    .popup-icon{
-        background-position: center;
+      #popup-icon{
+          background-position: center;
         background-size: cover;
+          width: 100%;
+          height: 100%;
+      }
+    .popup-icon{
+        
       height: 50%;
       width:100%;
       text-align: center;

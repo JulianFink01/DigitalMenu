@@ -93,7 +93,7 @@
           var zutatenfield = document.getElementById('popup-zutaten');
           zutatenfield.innerHTML = json['zutaten'];
           var zutatenfield = document.getElementById('popup-icon');
-          zutatenfield.style = 'background-image: url(../../images/produkt/'+json['icon']+')';
+          zutatenfield.style = 'background-image: url(../images/produkt/'+json['icon']+')';
           var zutatenfield = document.getElementById('produkt-title');
           zutatenfield.innerHTML = json['name'];
         }

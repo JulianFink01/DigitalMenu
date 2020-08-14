@@ -1,5 +1,5 @@
 <form class="popup"  enctype="multipart/form-data" id="addProdukt" method="post" action="index.php?aktion=saveProdukt">
-    <img src="images/close.png" id="close" title="Popup schließen" onclick="showPopup('addProdukt')"/>
+    <div id="close" title="Popup schließen" onclick="showPopup('addProdukt')"></div>
 
     <legend><h1 id="produkt-title">Produkt erstellen</h1></legend>
       <div class="flex">
