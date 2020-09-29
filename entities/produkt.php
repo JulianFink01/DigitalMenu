@@ -4,10 +4,14 @@ class Produkt{
 
 protected $id = 0;
 protected $name = "";
+protected $name_it = "";
 protected $description = "";
+protected $description_it = "";
 protected $price = 0;
 protected $kategorie = 0;
 protected $zutaten = "";
+protected $zutaten_it = "";
+protected $hersteller = "";
 protected $status = true;
 protected $icon = "";
 
@@ -67,12 +71,24 @@ public function setId($id){
 public function getId(){
   return $this->id;
 }
+    public function setHersteller($hersteller){
+        $this->hersteller = $hersteller;
+    }
+    public function getHersteller(){
+        return $this->hersteller;
+    }
 public function setName($name){
   $this->name = $name;
 }
 public function getName(){
   return $this->name;
 }
+public function setName_it($name){
+        $this->name_it = $name;
+    }
+    public function getName_it(){
+        return $this->name_it;
+    }
 public function setIcon($icon){
   $this->icon = $icon;
 }
@@ -85,6 +101,12 @@ public function setDescription($description){
 public function getDescription(){
   return $this->description;
 }
+    public function setDescription_it($description){
+        $this->description_it = $description;
+    }
+    public function getDescription_it(){
+        return $this->description_it;
+    }
 public function setKategorie($Kategorie){
   $this->kategorie = $Kategorie;
 }
@@ -103,6 +125,12 @@ public function setZutaten($zutaten){
 public function getZutaten(){
   return $this->zutaten;
 }
+public function setZutaten_it($zutaten){
+        $this->zutaten_it = $zutaten;
+    }
+public function getZutaten_it(){
+        return $this->zutaten_it;
+    }
 public function setStatus($status){
   $this->status = $status;
 }
@@ -116,8 +144,8 @@ public function getStatus(){
 private function _insert()
 {
 
-    $sql = 'INSERT INTO produkt (name, description, kategorie, price, zutaten, status, icon)'
-         . 'VALUES (:name, :description, :kategorie, :price, :zutaten, :status, :icon)';
+    $sql = 'INSERT INTO produkt (name,name_it, description,description_it, kategorie, price, zutaten,zutaten_it,hersteller, status, icon)'
+         . 'VALUES (:name,:name_it, :description,:description_it, :kategorie, :price, :zutaten, :zutaten_it,:hersteller,:status, :icon)';
 
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute($this->toArray(false));
@@ -127,10 +155,10 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE produkt SET name=?, icon=?, description=?, kategorie=?, price=?, zutaten=?, status=?'
+    $sql = 'UPDATE produkt SET name=?,name_it=?, icon=?, description=?,description_it=?, kategorie=?, price=?, zutaten=?,zutaten_it=?,hersteller=?, status=?'
         . 'WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
-    $abfrage->execute(array($this->getName(), $this->getIcon(), $this->getDescription(),$this->getKategorie(), $this->getPrice(), $this->getZutaten(), $this->getStatus(), $this->getId()));
+    $abfrage->execute(array($this->getName(),$this->getName_it(), $this->getIcon(), $this->getDescription(),$this->getDescription_it(),$this->getKategorie(), $this->getPrice(), $this->getZutaten(),$this->getZutaten_it(),$this->getHersteller(), $this->getStatus(), $this->getId()));
 }
 
 /* ***** public Methoden ***** */

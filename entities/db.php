@@ -13,9 +13,8 @@ class DB {
 
        if (self::$db == NULL){
         try{
-          $vars = parse_ini_file("../entities/variables.ini.php", TRUE);
-          $dbvars = $vars["Database"];
-         self::$db = new PDO('mysql:host='.$dbvars["host"].';dbname='.$dbvars["name"].';charset=UTF8',$dbvars["user"],$dbvars["password"]);
+            require_once "../entities/variables.ini.php";
+         self::$db = new PDO('mysql:host='.Variables::$DB_HOST.';dbname='.Variables::$DB_NAME.';charset=UTF8',Variables::$DB_USER,Variables::$DB_PASSWORD);
          self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e){

@@ -20,8 +20,7 @@
 
         <form id="login-form" method="post" action="index.php?aktion=login" >
           <legend>Administrationpanel</legend>
-          <input type="text" placeholder="Benutzername" name="key" required>
-          <input type="password" class="password" placeholder="Passwort" name="passwd" required>
+            <input type="password" class="password" placeholder="Passwort" name="passwd" required>
           <input type="submit" name="Login" value="Login">
         </form>
 

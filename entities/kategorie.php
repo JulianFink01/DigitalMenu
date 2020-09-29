@@ -4,7 +4,9 @@ class Kategorie{
 
 protected $id = 0;
 protected $name = "";
-protected $description = "";
+    protected $name_it = "";
+    protected $description = "";
+protected $description_it = "";
 protected $subkategorie = 0;
 protected $icon = "";
 
@@ -71,11 +73,23 @@ public function setName($name){
 public function getName(){
   return $this->name;
 }
-public function setDescription($description){
-  $this->description = $description;
+    public function setName_it($name_it){
+        $this->name_it = $name_it;
+    }
+    public function getName_it(){
+        return $this->name_it;
+    }
+    public function setDescription($description){
+        $this->description = $description;
+    }
+    public function getDescription(){
+        return $this->description;
+    }
+public function setDescription_it($description_it){
+  $this->description_it = $description_it;
 }
-public function getDescription(){
-  return $this->description;
+public function getDescription_it(){
+  return $this->description_it;
 }
 public function setSubkategorie($subkategorie){
   $this->subkategorie = $subkategorie;
@@ -102,8 +116,8 @@ public function HasSubKategorie(){
 private function _insert()
 {
 
-    $sql = 'INSERT INTO kategorie (name, description, subkategorie, icon)'
-         . 'VALUES (:name, :description, :subkategorie, :icon)';
+    $sql = 'INSERT INTO kategorie (name,name_it, description,description_it, subkategorie, icon)'
+         . 'VALUES (:name,:name_it, :description,:description_it, :subkategorie, :icon)';
 
     $abfrage = DB::getDB()->prepare($sql);
     $abfrage->execute($this->toArray(false));
@@ -113,10 +127,10 @@ private function _insert()
 
 private function _update()
 {
-    $sql = 'UPDATE kategorie SET name=?, description=?, subkategorie = ?, icon = ?'
+    $sql = 'UPDATE kategorie SET name=?,name_it=?,  description=?,description_it=?, subkategorie = ?, icon = ?'
         . 'WHERE id=?';
     $abfrage = DB::getDB()->prepare($sql);
-    $abfrage->execute(array($this->getName(), $this->getDescription(),$this->getSubkategorie(), $this->getIcon(), $this->getId()));
+    $abfrage->execute(array($this->getName(),$this->getName_it(), $this->getDescription(),$this->getDescription_it(),$this->getSubkategorie(), $this->getIcon(), $this->getId()));
 }
 
 /* ***** public Methoden ***** */
@@ -148,7 +162,7 @@ public static function findeNachName($name){
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($name));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kategorie');
-  return $abfrage->fetch();
+  return $abfrage->fetchAll();
 }
 
 public static function findeAlleProdukte(){
@@ -161,7 +175,7 @@ public static function findeNachKategorie(Kategorie $kategorie)
   $abfrage = DB::getDB()->prepare($sql);
   $abfrage->execute(array($kategorie->getId()));
   $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Kategorie');
-  return $abfrage->fetch();
+  return $abfrage->fetchAll();
 }
 
 

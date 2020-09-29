@@ -1,13 +1,18 @@
 <?php
 
+class Variables{
 
-[Database]
-host = sql7.freemysqlhosting.net
-name = sql7360320
-user = sql7360320
-password = FJH2qmWwsL
 
-[Verwaltung]
-username = test
-password = test
+     static $DB_HOST = "localhost:3306";
+     static  $DB_NAME ="admin_digital-menu";
+     static $DB_USER = "user_digital_menu";
+     static $DB_PASSWORD = "Fungog04!#";
+
+ /* static $DB_HOST = "localhost";
+  static  $DB_NAME ="DigitalMenu";
+  static $DB_USER = "root";
+  static $DB_PASSWORD = ""; */
+
+   static$VERWALTUNG_PASSWORD = "test";
+}
 ?>

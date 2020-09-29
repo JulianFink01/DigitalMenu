@@ -1,0 +1,132 @@
+@charset "UTF-8";
+html, * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html #content, * #content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/background/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  text-align: center;
+  justify-content: center;
+}
+html #content #content-inner, * #content #content-inner {
+  background: none;
+  background-color: transparent;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  width: 70%;
+  height: 70%;
+  margin: auto;
+  border-radius: 25%;
+}
+html #content #content-inner h1, * #content #content-inner h1 {
+  color: #4f4a3c;
+  font-size: 4em;
+  height: 10%;
+}
+html #content #content-inner h2, * #content #content-inner h2 {
+  color: #4f4a3c;
+  font-size: 2em;
+  height: 10%;
+  margin-top: 5%;
+}
+html #content #content-inner .custom-select, * #content #content-inner .custom-select {
+  width: 40% !important;
+  height: 5% !important;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/background/down_arrow.png) no-repeat right #4f4a3c;
+  background-size: 10px;
+  background-position: calc(100% - 25px);
+}
+html #content #content-inner .custom-select select, * #content #content-inner .custom-select select {
+  color: white;
+  background: none !important;
+  width: 100%;
+  font-size: 1.3em;
+  transform: translateY(25%);
+  padding-left: 15px;
+  line-height: 1;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  z-index: 2;
+}
+html #content #content-inner .custom-select select::after, * #content #content-inner .custom-select select::after {
+  content: "€";
+}
+html #content #content-inner .custom-select select option, * #content #content-inner .custom-select select option {
+  font-size: 0.7em;
+  background-color: white !important;
+}
+html #content #content-inner a, * #content #content-inner a {
+  display: block;
+  text-decoration: none;
+  color: #4f4a3c;
+  margin-top: 5%;
+  height: 10%;
+  width: 100%;
+  font-size: 2em;
+  transition: 0.3s all ease;
+}
+html #content #content-inner a:hover, * #content #content-inner a:hover {
+  color: #208676;
+}
+html #content #content-inner img, * #content #content-inner img {
+  height: 40%;
+  margin-top: 5%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  #content #content-inner {
+    backdrop-filter: blur(5px);
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0px !important;
+  }
+  #content #content-inner h1 {
+    margin-top: 15% !important;
+    font-size: 2.5em !important;
+  }
+  #content #content-inner h2 {
+    font-size: 1.3em !important;
+    width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #content #content-inner .custom-select {
+    width: 100% !important;
+  }
+  #content #content-inner a {
+    margin-top: 10% !important;
+    font-size: 1.5em !important;
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: underline !important;
+  }
+  #content #content-inner img {
+    height: 30% !important;
+    margin-top: 20% !important;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */
